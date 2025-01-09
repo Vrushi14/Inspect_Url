@@ -1,0 +1,24 @@
+{
+  "name": "urlchecker",
+  "version": "10.9.0",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vrushi14",
+  "license": "ISC",
+  "description": "Verify and Test Urls",
+  "repository": {
+    "type": "git",
+    "url": "github.com/Vrushi14/Inspect_Url"
+  },
+  "keywords": [
+    "Inspecting",
+    "the",
+    "Urls",
+    "Checking",
+    "Link",
+    "Availability",
+    "status"
+  ]
+}
