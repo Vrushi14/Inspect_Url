@@ -1,67 +1,68 @@
-const readline = require('readline');
-const url = require('url');
+import chalk from "chalk";
+import readline from "readline";
 
-
+const log = console.log;
 const blockedUrls = [
-    'https://blockedexample.com',
-    'https://malicioussite.com',
-    'https://phishingsite.com',
-    'https://youtube.com',
-    'https://www.instagram.com/'
+    "http://paruluniversity.com",
+    "http://danger.com",
+    "http://squidgame.com",
+    "",
+    "http://evil.com",
+    "http://malware.com",
+    "http://laxmichitfund.com",
+    "http://ransomware.com",
+    "http://phishing.com",
 ];
 
-
-function parseAndValidateUrl(inputUrl) {
+function isValidUrl(url) {
     try {
-        const parsedUrl = new URL(inputUrl);
-
-
-        if (!['http:', 'https:'].includes(parsedUrl.protocol)) {
-            throw new Error('Invalid protocol. Only HTTP and HTTPS are allowed.');
-        }
-
-        
-        if (!parsedUrl.hostname) {
-            throw new Error('Invalid URL: Missing domain.');
-        }
-
-        return parsedUrl.href;
-    } catch (error) {
-        throw new Error('Invalid URL format or missing domain.');
+        const parsedUrl = new URL(url);
+        return parsedUrl.protocol === "http:" || parsedUrl.protocol === "https:";
+    } catch (err) {
+        return false;
     }
 }
 
-
-function isBlockedUrl(inputUrl) {
-    return blockedUrls.includes(inputUrl);
+function isBlockedUrl(url) {
+    return blockedUrls.includes(url.toLowerCase());
 }
-
-
-function handleUrlInput(inputUrl) {
-    try {
-        
-        const validUrl = parseAndValidateUrl(inputUrl);
-
-        
-        if (isBlockedUrl(validUrl)) {
-            console.log('The URL is blocked.');
-        } else {
-            console.log('The URL is valid and accessible.');
-        }
-    } catch (error) {
-        
-        console.error('Error:', error.message);
-    }
-}
-
 
 const rl = readline.createInterface({
     input: process.stdin,
-    output: process.stdout
+    output: process.stdout,
 });
 
+rl.question("Enter a URL to validate: ", (inputUrl) => {
+    if (!inputUrl || inputUrl.trim() === "") {
+        console.error("Error: No URL provided.");
+        rl.close();
+        return;
+    }
+    const url = inputUrl.trim();
+    if (!isValidUrl(inputUrl)) {
+        console.error("Error: The URL is not valid.");
+    } else if (isBlockedUrl(inputUrl)) {
+        console.warn(chalk.red("Warning: The URL is blocked."));
+    } else {
+        console.log(chalk.green("Success: The URL is valid and accessible."));
+        try {
+            const url = new URL(inputUrl);
+            const params = url.searchParams;
+    
+            if (params.toString() === "") {
+                console.log("No parameter found in this URL.");
+            } else {
+                console.log(`There are parameters in this URL:`);
+                params.forEach((value, key) => {
+                    console.log(`${key}: ${value}`);
+                });
+            }
+        } catch (error) {
+            console.error("Error: The URL is not valid.");
+        }
+    }
 
-rl.question('Enter a URL: ', (inputUrl) => {
-    handleUrlInput(inputUrl);
-    rl.close();
+
+rl.close();
+
 });
