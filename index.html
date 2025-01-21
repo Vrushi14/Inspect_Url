@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Analyzer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    
+    <div class="navbar">
+        <a href="#" class="logo">URL Validator</a>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="/about.html">About</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+    
+    <div class="info-section">
+        <h3>Welcome to the URL Analyzer</h3><br>
+        <p>Enter a URL below to check if it is valid and whether it's blocked or accessible.</p>
+    </div>
+
+    <div class="container">
+        <h3>URL Analyzer</h3>
+        <input type="text" id="urlInput" placeholder="Enter URL to validate">
+        <button id="validateBtn">Validate URL</button>
+        <div class="message" id="message"></div>
+    </div>
+   
+    <div class="list-container" id="listContainer">
+        <h3>Validation Results</h3>
+        <ul class="url-list" id="urlList">
+        </ul>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

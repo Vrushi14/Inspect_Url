@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - URL Analyzer</title>
+    <!-- Google Fonts for cool typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            padding-top: 40px;
+        }
+
+        h1 {
+            color: #3498db;
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 900px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section h2 {
+            color: #3498db;
+            font-weight: 600;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .section p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #dcdcdc;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            font-size: 16px;
+            color: #dcdcdc;
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .back-button {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            display: block;
+            text-align: center;
+            margin: 20px auto 0;
+            max-width: 200px;
+        }
+
+        .back-button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Responsive design */
+        @media screen and (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .back-button {
+                width: 100%;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>About URL Analyzer Tool</h1>
+    <div class="container">
+        <div class="section">
+            <h2>What is the URL Analyzer?</h2>
+            <p>
+                The <strong>URL Analyzerr</strong> is a tool designed to help users quickly check if a URL is valid and whether it's part of a list of blocked, harmful, or restricted URLs.
+                This tool ensures that the URLs are not only formatted correctly but also not leading to potentially dangerous websites.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>How Does It Work?</h2>
+            <p>The URL Analyzerr performs the following steps:</p>
+            <ul>
+                <li><strong>URL Validation:</strong> It ensures the URL entered by the user is in a valid format. If it's malformed, an error message will be displayed.</li>
+                <li><strong>Blocked URL Check:</strong> It checks the input URL against a predefined list of blocked URLs. If the URL is on the blocklist, the tool will flag it as "Blocked".</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Features</h2>
+            <ul>
+                <li><strong>Simple and Fast:</strong> Quickly validate any URL with real-time feedback.</li>
+                <li><strong>Blocked URL Detection:</strong> Easily identifies dangerous websites by cross-referencing with a list of known threats.</li>
+                <li><strong>Clear Visual Feedback:</strong> The tool displays clear, easy-to-understand messages indicating whether the URL is valid or blocked.</li>
+                <li><strong>Safe Browsing:</strong> Helps you avoid phishing sites, malware, and ransomware by flagging known dangerous URLs.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Why Should You Use This Tool?</h2>
+            <p>The URL Analyzer tool is an essential resource for anyone concerned with safe browsing and URL security:</p>
+            <ul>
+                <li><strong>Security First:</strong> Ensures you're not accidentally visiting dangerous websites.</li>
+                <li><strong>Convenient:</strong> No need to manually check or investigate a URL. Just enter it and get instant results.</li>
+                <li><strong>Educational:</strong> Great for learning how URLs work and identifying potentially harmful sites.</li>
+                <li><strong>Free and Accessible:</strong> It’s available for anyone to use—no sign-ups or complicated setup required.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Blocked URL List</h2>
+            <p>Here are some examples of URLs that are flagged as "Blocked" by the tool:</p>
+            <ul>
+                <li>http://paruluniversity.com</li>
+                <li>http://danger.com</li>
+                <li>http://squidgame.com</li>
+                <li>http://evil.com</li>
+                <li>http://malware.com</li>
+                <li>http://laxmichitfund.com</li>
+                <li>http://ransomware.com</li>
+                <li>http://phishing.com</li>
+            </ul>
+            <p>The list is continually updated to keep you safe from new and emerging threats.</p>
+        </div>
+
+        <div class="section">
+            <h2>Get Started</h2>
+            <p>If you're ready to validate a URL, head back to the <a href="index.html">home page</a> and enter any URL you'd like to test. It's quick and easy!</p>
+        </div>
+
+        <a href="index.html">
+            <button class="back-button">Back to Home</button>
+        </a>
+    </div>
+    
+</body>
+</html>

@@ -1,68 +1,49 @@
-import chalk from "chalk";
-import readline from "readline";
+document.getElementById("validateBtn").addEventListener("click", function() {
+        const urlInput = document.getElementById("urlInput").value.trim();
+        const messageElement = document.getElementById("message");
+        const urlListElement = document.getElementById("urlList");
 
-const log = console.log;
-const blockedUrls = [
-    "http://paruluniversity.com",
-    "http://danger.com",
-    "http://squidgame.com",
-    "",
-    "http://evil.com",
-    "http://malware.com",
-    "http://laxmichitfund.com",
-    "http://ransomware.com",
-    "http://phishing.com",
-];
+        // Blocked URLs list
+        const blockedUrls = [
+            "http://paruluniversity.com",
+            "http://danger.com",
+            "http://squidgame.com",
+            "http://evil.com",
+            "http://malware.com",
+            "http://laxmichitfund.com",
+            "http://ransomware.com",
+            "http://phishing.com"
+        ];
 
-function isValidUrl(url) {
-    try {
-        const parsedUrl = new URL(url);
-        return parsedUrl.protocol === "http:" || parsedUrl.protocol === "https:";
-    } catch (err) {
-        return false;
-    }
-}
+       
+        messageElement.textContent = "";
+        urlListElement.innerHTML = "";
 
-function isBlockedUrl(url) {
-    return blockedUrls.includes(url.toLowerCase());
-}
+        
+        if (!urlInput) {
+            messageElement.textContent = "Please enter a valid URL.";
+            messageElement.style.color = "#f39c12"; 
+            return;
+        }
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-});
-
-rl.question("Enter a URL to validate: ", (inputUrl) => {
-    if (!inputUrl || inputUrl.trim() === "") {
-        console.error("Error: No URL provided.");
-        rl.close();
-        return;
-    }
-    const url = inputUrl.trim();
-    if (!isValidUrl(inputUrl)) {
-        console.error("Error: The URL is not valid.");
-    } else if (isBlockedUrl(inputUrl)) {
-        console.warn(chalk.red("Warning: The URL is blocked."));
-    } else {
-        console.log(chalk.green("Success: The URL is valid and accessible."));
         try {
-            const url = new URL(inputUrl);
-            const params = url.searchParams;
-    
-            if (params.toString() === "") {
-                console.log("No parameter found in this URL.");
+            const url = new URL(urlInput);
+
+           
+            if (blockedUrls.includes(urlInput)) {
+                messageElement.textContent = "This URL is blocked.";
+                messageElement.style.color = "#e74c3c"; 
             } else {
-                console.log(`There are parameters in this URL:`);
-                params.forEach((value, key) => {
-                    console.log(`${key}: ${value}`);
-                });
+                const listItem = document.createElement("li");
+                listItem.innerHTML = `${urlInput} - <span class="status-accessible">Accessible</span>`;
+                urlListElement.appendChild(listItem);
+
+                messageElement.textContent = "URL is valid!";
+                messageElement.style.color = "#00f7ff"; 
             }
         } catch (error) {
-            console.error("Error: The URL is not valid.");
+            messageElement.textContent = "Invalid URL.";
+            messageElement.style.color = "#f39c12"; 
         }
-    }
+ });
 
-
-rl.close();
-
-});
