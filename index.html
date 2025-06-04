@@ -3,38 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>URL Analyzer</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Advanced URL Inspector</title>
+    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-
-    
-    <div class="navbar">
-        <a href="#" class="logo">URL Validator</a>
-        <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="/about.html">About</a>
-            <a href="#">Contact</a>
+    <div class="real-time-stats" id="realTimeStats">
+        <div class="stat-row">
+            <span>URLs Tested:</span>
+            <span id="urlCount">0</span>
         </div>
-    </div>
-    
-    <div class="info-section">
-        <h3>Welcome to the URL Analyzer</h3><br>
-        <p>Enter a URL below to check if it is valid and whether it's blocked or accessible.</p>
+        <div class="stat-row">
+            <span>Validation Time:</span>
+            <span id="validationTime">0ms</span>
+        </div>
+        <div class="stat-row">
+            <span>Security Score:</span>
+            <span id="securityScore">-</span>
+        </div>
     </div>
 
     <div class="container">
-        <h3>URL Analyzer</h3>
-        <input type="text" id="urlInput" placeholder="Enter URL to validate">
-        <button id="validateBtn">Validate URL</button>
-        <div class="message" id="message"></div>
+        <div class="header">
+            <h1>🚀 Advanced URL Inspector</h1>
+            <p>Real-time URL validation, security analysis, and performance insights</p>
+        </div>
+
+        <div class="main-content">
+            <div class="input-panel">
+                <div class="input-group">
+                    <label class="input-label">
+                        <span class="live-indicator"></span>
+                        Live URL Analysis
+                    </label>
+                    <div class="url-input-container">
+                        <input type="text" id="urlInput" class="url-input" 
+                               placeholder="Enter URL for instant analysis..." 
+                               autocomplete="off">
+                        <div id="inputStatus" class="input-status"></div>
+                    </div>
+                </div>
+
+                <div class="quick-test-buttons">
+                    <button class="quick-test-btn" data-url="https://google.com">Google</button>
+                    <button class="quick-test-btn" data-url="https://github.com">GitHub</button>
+                    <button class="quick-test-btn" data-url="http://example.com">HTTP Example</button>
+                    <button class="quick-test-btn" data-url="https://very-long-subdomain.example-domain.com/very/long/path/with/many/segments?param1=value1&param2=value2&param3=value3">Long URL</button>
+                    <button class="quick-test-btn" data-url="ftp://files.example.com">FTP URL</button>
+                    <button class="quick-test-btn" data-url="localhost:3000">Localhost</button>
+                </div>
+
+                <div class="input-group" style="margin-top: 30px;">
+                    <label class="input-label">Bulk URL Testing</label>
+                    <textarea id="bulkInput" class="url-input" rows="4" 
+                              placeholder="Paste multiple URLs (one per line) for batch analysis..."></textarea>
+                </div>
+            </div>
+
+            <div class="results-panel" id="resultsPanel">
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <div class="metric-title">Ready for Analysis</div>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.8); text-align: center; padding: 20px;">
+                        Enter a URL to see real-time analysis results
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
-   
-    <div class="list-container" id="listContainer">
-        <h3>Validation Results</h3>
-        <ul class="url-list" id="urlList">
-        </ul>
-    </div>
-    <script src="main.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
